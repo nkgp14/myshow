@@ -5,37 +5,44 @@ from django.db import models
 class Country(models.Model):
     name = models.CharField(max_length=200)
 
+    class Meta:
+        verbose_name_plural = "Countries"
+
     def __unicode__(self):
         return self.name
 
-class Cities(models.Model):
+class City(models.Model):
     name = models.CharField(max_length=200)
     country = models.ForeignKey(Country)
 
+    class Meta:
+        verbose_name_plural = "Cities"
+
     def __unicode__(self):
         return self.name
 
-class Movies(models.Model):
+class Movie(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
 
     def __unicode__(self):
         return self.name
 
-class Theatres(models.Model):
+class Theatre(models.Model):
     name = models.CharField(max_length=200)
     address = models.CharField(max_length=400)
-    city = models.ForeignKey(Cities)
+    city = models.ForeignKey(City)
 
     def __unicode__(self):
         return self.name + ', ' + str(self.city)
 
-# TODO need to decide upon TimeField format and widget.
-class Showtimes(models.Model):
-    theatre = models.ForeignKey(Theatres)
-    movie = models.ForeignKey(Movies)
+class Showtime(models.Model):
+    theatre = models.ForeignKey(Theatre)
+    movie = models.ForeignKey(Movie)
     show_time = models.TimeField()
 
     def __unicode__(self):
-        return str(self.theatre) + str(self.movie) + self.show_time
+        return str(self.theatre) + " " + str(self.movie) + \
+               " " + self.show_time.strftime("%I:%M %p")
+
 
