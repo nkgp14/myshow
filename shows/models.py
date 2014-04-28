@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -36,13 +37,15 @@ class Theatre(models.Model):
     def __unicode__(self):
         return self.name + ', ' + str(self.city)
 
+# TODO timezone should be based on country name, or should be asked by user.
 class Showtime(models.Model):
     theatre = models.ForeignKey(Theatre)
     movie = models.ForeignKey(Movie)
-    show_time = models.TimeField()
+    show_time = models.DateTimeField(default=timezone.now())
 
     def __unicode__(self):
+        print self.show_time
         return str(self.theatre) + " " + str(self.movie) + \
-               " " + self.show_time.strftime("%I:%M %p")
+               " " + self.show_time.strftime("%A, %d %b %I:%M %p")
 
 
