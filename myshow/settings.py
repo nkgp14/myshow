@@ -29,14 +29,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# bootstrapped is added to provide some fancy themes to admin page
 INSTALLED_APPS = (
+    'django_admin_bootstrapped.bootstrap3',
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shows'
+    'shows',
+    'django_select2',
 )
 
 MIDDLEWARE_CLASSES = (
