@@ -44,7 +44,6 @@ class Showtime(models.Model):
     show_time = models.DateTimeField(default=timezone.now())
 
     def __unicode__(self):
-        print self.show_time
         return str(self.theatre) + " " + str(self.movie) + \
                " " + self.show_time.strftime("%A, %d %b %I:%M %p")
 

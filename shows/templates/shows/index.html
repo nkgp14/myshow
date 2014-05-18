@@ -51,29 +51,40 @@
                 </div>
                 <form role="form" class="main-select-form">
                     <div class="form-group">
-                        <label for="name">Select Country</label>
+                        <label for="country">Select Country</label>
                         <select class="form-control" id="country">
                             <option selected="selected" disabled="disabled">Select Country...</option>
                             {% for country in country_list%}
                                 <option value="{{ country.id }}"> {{ country.name }}</option>
                             {% endfor %}
                         </select>
+                        <div class="clear"/>
 
-                        <label for="name">Select City</label>
+                        <label for="city">Select City</label>
                         <select class="form-control" id="city">
                             <option selected="selected" disabled="disabled">Select city...</option>
                         </select>
                         <div class="clear"/>
+
+                        <label>
+                            <input id="rcinema" name="cinema" type="radio" class="radioControl" onclick="handleRadio('cinema');" checked="checked" disabled="disabled">
+                            <span class="radioOptControl">Cinemas</span>
+                        </label>
+                        <label>
+                            <input id="rmovie" name="cinema" type="radio" class="radioControl" onclick="handleRadio('movie');" disabled="disabled">
+                            <span class="radioOptControl">Movies</span>
+                        </label>                        
+                        <div class="clear"/>
                     
-                        <label for="name">Select Theatre</label>
-                        <select class="form-control" id="theatre">
-                            <option selected="selected" disabled="disabled">Choose Theatre...</option>
+                        <label id="cinema-label" for="cinema">Select Cinema</label>
+                        <select class="form-control" id="cinema">
+                            <option selected="selected" disabled="disabled">Choose Cinema...</option>
                         </select>
                         <div class="clear"/>
                     
-                        <label for="name">Select Movie</label>
-                        <select class="form-control" id="movie">
-                            <option selected="selected" disabled="disabled">Choose Movie...</option>
+                        <label for="date">Select Date</label>
+                        <select class="form-control" id="date">
+                            <option selected="selected" disabled="disabled">Choose Date...</option>
                         </select>
                     </div>
                 </form>

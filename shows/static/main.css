@@ -58,6 +58,16 @@
   padding-bottom: 5px; 
 }
 
+.pagecontent .radioControl{
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.pagecontent .radioOptControl{
+  float: left;
+  margin-right: 10px;
+}
 
 
 <!-- ------------------------------------------Slidejs specific css starts------------------------------------------>
